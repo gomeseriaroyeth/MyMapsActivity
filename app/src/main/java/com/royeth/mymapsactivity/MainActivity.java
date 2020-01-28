@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static final String TAG = "MainActivity";
 
-    public float usrLongitude;
-    public float usrLatitude;
+    private float usrLongitude;
+    private float usrLatitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         submitLocation.setOnClickListener(this);
     }
 
+    public void Coord(){
+        this.usrLongitude = Float.valueOf(((EditText) findViewById(R.id.longitudeet)).getText().toString());
+        this.usrLatitude = Float.valueOf(((EditText) findViewById(R.id.latitudeet)).getText().toString());
+    }
+
+    public float getLongitude(){
+        return this.usrLongitude;
+    }
+    public float getLatitude(){
+        return this.usrLatitude;
+    }
+
     @Override
     public void onClick(View view) {
-
-        usrLongitude = Float.valueOf(((EditText) findViewById(R.id.longitudeet)).getText().toString());
-        usrLatitude = Float.valueOf(((EditText) findViewById(R.id.latitudeet)).getText().toString());
         startActivity(new Intent(getApplicationContext(), MapsActivity.class));
     }
+
+
 }

@@ -27,8 +27,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         MainActivity obj = new MainActivity();
-        myLongitude = obj.usrLongitude;
-        myLatitude = obj.usrLatitude;
+        myLongitude = obj.getLongitude();
+        myLatitude = obj.getLatitude();
     }
 
 
@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(myLatitude, myLongitude);
+        LatLng sydney = new LatLng(myLongitude,myLatitude);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
